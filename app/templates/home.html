@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'home.css' %}">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Welcome to the Home Page</h1>
+    </header>
+    <nav class="buttons">
+      <a class="btn btn-primary" href="{% url 'todo1' %}">&#x2190; Todo-list</a>     
+      <a class="btn btn-primary" href="{% url 'cv' %}">&#x2190; CV 1&2</a>
+    </nav>
+  </div>
+</body>
+</html>

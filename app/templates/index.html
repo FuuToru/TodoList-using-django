@@ -1,0 +1,179 @@
+<!DOCTYPE html> 
+<html> 
+
+<head> 
+	<style> 
+		body { 
+			font-family: Arial, sans-serif; 
+		} 
+
+		.form-container { 
+			width: 60%; 
+			margin: 0 auto; 
+			padding: 20px; 
+			border: 1px solid #ccc; 
+			border-radius: 5px; 
+		} 
+
+		.form-group { 
+			margin-bottom: 15px; 
+		} 
+
+		.form-group label { 
+			display: block; 
+			font-weight: bold; 
+		} 
+
+		.form-group input[type="text"], 
+		.form-group textarea { 
+			width: 100%; 
+			padding: 10px; 
+			border: 1px solid #ccc; 
+			border-radius: 5px; 
+		} 
+
+		.form-group textarea { 
+			height: 100px; 
+		} 
+
+		.om { 
+			width: 100%; 
+			padding: 10px 20px; 
+			display: flex; 
+			gap: 10px; 
+		} 
+
+		.ed { 
+			width: 100%; 
+			padding: 10px 20px; 
+			display: flex; 
+			gap: 4%; 
+		} 
+
+		.com { 
+			width: 80%; 
+			padding: 5px 20px; 
+			display: flex; 
+			gap: 7%; 
+
+		} 
+
+		.op { 
+			margin: 10px; 
+
+		} 
+
+		.btn1 { 
+			margin-left: 43%; 
+			padding: 15px 15px; 
+			font-size: 15px; 
+			font-weight: bold; 
+			background-color: rgb(35, 144, 208); 
+			border-radius: 10px; 
+		} 
+	</style> 
+</head> 
+
+<body> 
+	<h1 style="text-align: center; color:green; font-size:40px; ">Fill to CV</h1> 
+	<a style="text-align: center; display: block" href = "{% url 'home'%}">Home page</a>
+	<a style="text-align: center; display: block" href = "{% url 'fake_data'%}">Fake data</a>
+	
+
+	<form action="{% url 'save' %}" method="post"> 
+		{% csrf_token %} 
+
+
+		<!-- ===================PERSONAL INFORMATION====================== -->
+
+		<div class="form-container"> 
+			<h2>Personal Information</h2> 
+			<div class="form-group"> 
+				<label for="name">Name:</label> 
+				<input type="text" id="name" name="name" value = "{{ personal.name }}"> 
+			</div> 
+			<div class="form-group"> 
+				<label for="name">About:</label> 
+				<input type="text" id="about" name="about" value = "{{personal.about}}"> 
+			</div> 
+			<div class="form-group"> 
+				<label for="age">Age:</label> 
+				<input type="text" id="age" name="age" value = "{{personal.age}}"> 
+			</div> 
+			<div class="form-group"> 
+				<label for="email">Email:</label> 
+				<input type="text" id="email" name="email" value = "{{personal.email}}"> 
+			</div> 
+			<div class="form-group"> 
+				<label for="phone">Phone:</label> 
+				<input type="text" id="phone" name="phone" value = "{{personal.phone}}"> 
+			</div> 
+			<div class="form-group "> 
+				<label for="skill">Skills:</label> 
+				<input type="text" id="skill" name="skill" value = "{{personal.skill}}">
+			</div> 
+
+				<!-- =====================EDUCATION SECTION ================== -->
+
+				<!-- -----EDUCATION 1----- -->
+				<div class="form-group"> 
+					<label for="education1">Education 1:</label> 
+				</div> 
+				<div class="ed"> 
+					<div class="form-group"> 
+						<label for="degree1">Degree :</label> 
+						<input type="text" id="degree1" name="degree1" value = "{{education.degree}}"> 
+					</div> 
+					<div class="form-group"> 
+						<label for="college1">College :</label> 
+						<input type="text" id="college1" name="college1" value = "{{education.college}}"> 
+					</div> 
+					<div class="form-group"> 
+						<label for="year1">Year :</label> 
+						<input type="text" id="year1" name="year1" value = "{{education.year}}"> 
+					</div> 
+				</div> 
+
+
+				<!-- =====================PROJECT SECTION=================== -->
+
+				<!-- PROJECT 1 -->
+
+				<div class="form-group"> 
+					<label for="experience1">Project 1 :</label> 
+				</div> 
+				<div class="com"> 
+					<div class="form-group "> 
+						<label for="company1">Project Title :</label> 
+						<input type="text" id="company1" name="title" value = "{{project.title}}"> 
+					</div> 
+					<div class="form-group"> 
+						<label for="post1">Duration :</label> 
+						<input type="text" id="post1" name="duration" value = "{{project.duration}}">  
+					</div> 
+				</div> 
+				<div class="form-group"> 
+					<label for="description1">Description :</label> 
+					<input type="text" id="duration1" name="description" value = "{{project.description}}"> 
+				</div> 
+				<!-- ==========================ACHIEVEMENT================= -->
+
+				<div class="form-group"> 
+                    <label for="experience1">Achievement :</label> 
+                </div> 
+                <div class="form-group "> 
+                    <label for="company1">First :</label> 
+                    <input type="text" id="company1" name="ach1" value = "{{project.achievement1}}"> 
+                </div> 
+                <div class="form-group"> 
+                    <label for="post1">Second :</label> 
+                    <input type="text" id="post1" name="ach2" value = "{{project.achievement2}}"> 
+                </div> 
+
+				<button type="submit" name="submit_button" value="page1" class="btn1">Submit for CV 1</button> 
+				<button type="submit" name="submit_button" value="page2" class="btn1">Submit for CV 2</button> 
+			</div> 
+	</form> 
+</body> 
+
+</html>

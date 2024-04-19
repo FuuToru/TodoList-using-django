@@ -1,0 +1,109 @@
+{% load static %} 
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="{% static 'resumne_2.css'%}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    </head>
+    <body>
+        <div class="container">
+           <div class="avatar">
+            <img src="{% static 'img.avif' %}" alt="">
+           </div>
+           <div class="name">
+                <h1>{{personal.name}}</h1>
+                <div class="specialize">{{personal.about}}</div>
+                <ul class="contact">
+                    <li>
+                        <span>P</span> +84-{{personal.phone}}
+                    </li>
+                    <li>
+                        <span>E</span> {{personal.email}}
+                    </li>
+                    <li>
+                        <span>W</span> https://github.com/FuuToru
+                    </li>
+                </ul>
+           </div>
+           <div class="info">
+                <ul>
+                    <li>From <b>Binh Thuan</b> - VietNam</li>
+                    <li>{{personal.age}}</li>
+                    <li>{{education.degree}}</li>
+                </ul>
+           </div>
+           <div class="intro">
+            <h2>INTRODUCE MYSELT</h2>
+            {{personal.about}}           </div>
+           <div class="experience">
+            <h2>EXPERIENCE</h2>
+    
+                <div class="item">
+                    <h4>{{education.college}}</h4>
+                    <div class="time">
+                       <span>{{education.year}}</span>
+                       <span>{{education.degree}}</span>
+                    </div>
+                    <p >
+                        IUH University, officially known as Industrial University of Ho Chi Minh City (IUH).
+                    </p>
+                </div>
+                <h2 class="skills">
+                    SKILLS
+                </h2>
+                    <p><strong>Skills</strong> {{personal.skill}}</p> 
+
+    
+           </div>
+           <div class="project">
+            <h2>PROJECTS</h2>
+            <div class="item">
+                <h4>{{project.title}}</h4>
+                <div class="time">
+                    {{project.duration}}
+                </div>
+                {% comment %} <a href="https://food-travel.netlify.app/" class="web">
+                    https://food-travel.netlify.app/
+                </a> <br> <br> {% endcomment %}
+
+                <div class="des">
+                    {{project.description}}
+                </div>
+            </div>
+            {% comment %} <div class="item">
+                <h4>Handwritten digit recognition using KNN</h4>
+                <div class="time">
+                    2023
+                </div>
+                <a href="https://fuutoru.github.io/Handwritten-digit-recognition-using-KNN/" class="web">
+                    https://fuutoru.github.io/Handwritten-digit-recognition-using-KNN/
+                </a> <br> <br>
+
+                <div class="des">
+                    <ul>
+                        <li>Handwritten recognition using the k-nearest neighbors (KNN) algorithm is a popular approach in pattern recognition and machine learning. KNN is a simple yet effective supervised learning algorithm used for classification tasks.</li>
+                        <li>In the context of handwritten recognition, the process typically involves converting handwritten images into a numerical format that can be processed by a computer. This often entails preprocessing steps such as image normalization, feature extraction, and dimensionality reduction to enhance the algorithm's performance.</li>
+                    </ul>
+                </div>
+            </div>
+    {% endcomment %}
+            <br />
+            <br />
+            <h2>Achievements :</h2> 
+            <ul> 
+                <li>{{project.achievement1}}</li> 
+                <li>{{project.achievement2}}</li> 
+            </ul> 
+    
+    </div>
+    <button type="submit" name="submit_button" value="page1" class="btn1" onclick="window.location.href='{% url 'home' %}'" >Get to home page</button> 
+
+        </div>
+        
+    </body>
+    </html>
+

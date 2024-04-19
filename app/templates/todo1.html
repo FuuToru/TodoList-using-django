@@ -1,0 +1,43 @@
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="{% static 'todo_1.css' %}">
+    </head>
+    <body>
+    <div class="container">
+        <a href = "{% url 'home'%}">Home page</a>
+        <h1>To-Do List</h1>
+
+        {% comment %} <div class="input-container"> {% endcomment %}
+        <div class="submit_form">
+            <form method="POST">
+                <center>
+                    {% csrf_token %}
+                    {{forms}}
+                    <br>
+                    <button onclick="addTask()">Add</button>
+                    </center>
+                </form>
+        </div>
+        <br>
+        {% for i in list %}
+        <div class="card">
+            <center><b>{{i.task}}</b></center>
+            <hr/>
+            {{i.date}}
+            <form action="/del1/{{i.id}}" method="POST" style=" padding-right: 4%; padding-bottom: 3%;">
+            {% csrf_token %}
+            <button value="remove" type="submit" class="btn btn-primary" style="float: right;"><span class="glyphicon glyphicon-trash"></span>  remove</button>
+            </form>
+        </div>
+        {% endfor%}
+        </div>
+
+    </div>
+    </body>
+    </html>
+
